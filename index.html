@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MUN Turkey</title>
+    <meta
+      name="description"
+      content="MUN Turkey is a real conference hub for the Turkish MUN circuit with verified public listings, direct messages, reviews, study guides, applications, and awards."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top">MUN Turkey</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#conferences">Conferences</a>
+          <a href="#account">Account</a>
+          <a href="#workspace">Workspace</a>
+          <a href="#assistant">Assistant</a>
+          <a href="#guides">Guides</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#messages">Messages</a>
+        </nav>
+      </header>
+      <div class="runtime-banner" id="runtime-banner" hidden></div>
+
+      <main id="top" class="site-main">
+        <section class="hero section-shell">
+          <div class="hero-copy">
+            <p class="eyebrow">Verified conference listings, delegate tools, and community feedback</p>
+            <h1>Find the right MUN conference in Turkey.</h1>
+            <p class="hero-text">
+              Browse verified listings, compare committees and fees, track your
+              applications, share guides, read delegate reviews, and connect with
+              other participants across the Turkish MUN circuit.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#conferences">Browse conferences</a>
+              <a class="button button-secondary" href="#assistant">Open assistant</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="trust-card">
+              <p class="eyebrow">Why delegates use it</p>
+              <h2>Built around verification and clarity</h2>
+              <p>
+                Every listing links back to its public source and shows track,
+                committee, fee, and verification details so delegates can check
+                the facts before they apply or pay.
+              </p>
+            </div>
+            <div class="stats-grid" id="stats-grid"></div>
+          </aside>
+        </section>
+
+        <div class="section-divider" aria-hidden="true"><span></span></div>
+
+        <section class="section-shell" id="conferences">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Conference Hub</p>
+              <h2>Verified listings across Turkey</h2>
+            </div>
+            <p class="section-note">
+              Filter by city, track, education level, language, and date. Cards
+              show fees, committees, application windows, source links, and the
+              last verification date.
+            </p>
+          </div>
+
+          <form class="filter-panel" id="conference-filter-form">
+            <label>
+              Search
+              <input id="search-filter" type="search" placeholder="Conference, committee, city, or topic" />
+            </label>
+            <label>
+              City
+              <select id="city-filter">
+                <option value="all">All cities</option>
+              </select>
+            </label>
+            <label>
+              Track
+              <select id="format-filter">
+                <option value="all">All tracks</option>
+                <option value="JMUN">JMUN</option>
+                <option value="MUN">MUN</option>
+              </select>
+            </label>
+            <label>
+              Education level
+              <select id="level-filter">
+                <option value="all">All levels</option>
+              </select>
+            </label>
+            <label>
+              Language
+              <select id="language-filter">
+                <option value="all">All languages</option>
+              </select>
+            </label>
+            <label>
+              From date
+              <input id="from-date-filter" type="date" />
+            </label>
+            <label>
+              To date
+              <input id="to-date-filter" type="date" />
+            </label>
+            <button class="button button-secondary reset-button" id="reset-filters" type="button">
+              Reset
+            </button>
+          </form>
+
+          <p class="section-status" id="conference-results">Loading conference records...</p>
+          <div class="conference-grid" id="conference-grid"></div>
+        </section>
+
+        <div class="section-divider" aria-hidden="true"><span></span></div>
+
+        <section class="section-shell" id="account">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Account</p>
+              <h2>Create your delegate profile</h2>
+            </div>
+            <p class="section-note">
+              Sign up once, keep your profile current, and use the same account
+              for applications, awards, reviews, guides, and direct messages.
+            </p>
+          </div>
+
+          <div class="section-grid two-column-grid">
+            <article class="section-card">
+              <div id="auth-shell"></div>
+              <p class="status-message" id="auth-status" aria-live="polite"></p>
+            </article>
+            <article class="section-card">
+              <div id="profile-shell"></div>
+              <p class="status-message" id="profile-status" aria-live="polite"></p>
+            </article>
+          </div>
+        </section>
+
+        <div class="section-divider" aria-hidden="true"><span></span></div>
+
+        <section class="section-shell" id="workspace">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Delegate Workspace</p>
+              <h2>Keep your season organized</h2>
+            </div>
+            <p class="section-note">
+              Track where you applied, update outcomes, and keep a clean record
+              of awards and achievements in one place.
+            </p>
+          </div>
+
+          <div class="section-grid two-column-grid">
+            <article class="section-card">
+              <div id="application-shell"></div>
+              <p class="status-message" id="application-status" aria-live="polite"></p>
+            </article>
+            <article class="section-card">
+              <div id="award-shell"></div>
+              <p class="status-message" id="award-status" aria-live="polite"></p>
+            </article>
+          </div>
+        </section>
+
+        <div class="section-divider" aria-hidden="true"><span></span></div>
+
+        <section class="section-shell" id="assistant">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Delegate Assistant</p>
+              <h2>Get help with speeches and resolution structure</h2>
+            </div>
+            <p class="section-note">
+              Use the assistant for fast speaking outlines, resolution structure,
+              and research direction. Always review and adapt the output to your
+              committee, country, and chairing style.
+            </p>
+          </div>
+
+          <div id="assistant-shell"></div>
+          <p class="status-message" id="assistant-status" aria-live="polite"></p>
+        </section>
+
+        <div class="section-divider" aria-hidden="true"><span></span></div>
+
+        <section class="section-shell" id="guides">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Study Guides</p>
+              <h2>Share committee prep that other delegates can actually use</h2>
+            </div>
+            <p class="section-note">
+              Share public links to background guides, Drive folders, or PDF
+              resources and tag them by conference, committee, and topic.
+            </p>
+          </div>
+
+          <div id="guide-shell"></div>
+          <p class="status-message" id="guide-status" aria-live="polite"></p>
+        </section>
+
+        <div class="section-divider" aria-hidden="true"><span></span></div>
+
+        <section class="section-shell" id="reviews">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Reviews</p>
+              <h2>Detailed comments from actual delegates</h2>
+            </div>
+            <p class="section-note">
+              Read how delegates experienced the academics, committees,
+              organization, and overall value before you decide where to apply.
+            </p>
+          </div>
+
+          <div id="review-shell"></div>
+          <p class="status-message" id="review-status" aria-live="polite"></p>
+        </section>
+
+        <div class="section-divider" aria-hidden="true"><span></span></div>
+
+        <section class="section-shell" id="messages">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Messages</p>
+              <h2>Direct messaging between registered delegates</h2>
+            </div>
+            <p class="section-note">
+              Reach out to other delegates directly to compare committees, ask
+              about conference experiences, or coordinate with your delegation.
+            </p>
+          </div>
+
+          <div id="message-shell"></div>
+          <p class="status-message" id="message-status" aria-live="polite"></p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>
+          Conference records are curated from public listings and official
+          sources. Always confirm deadlines, fees, and requirements with the
+          organizer before applying or making payment.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

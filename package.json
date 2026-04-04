@@ -1,0 +1,14 @@
+{
+  "name": "mun-turkey",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js",
+    "sync:conferences": "node scripts/sync-conference-db.js"
+  },
+  "devDependencies": {
+    "cheerio": "^1.2.0"
+  }
+}
